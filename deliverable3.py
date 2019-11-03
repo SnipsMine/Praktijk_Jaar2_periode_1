@@ -3,11 +3,11 @@
 """
 BFV2 Theme 05 - Genomics - Sequencing Project
 
-Template for reading in data and writing output data. Running this script
+A script for reading in data and writing output data. Running this script
 will print the first three lines of the input BED and pileup files and
 write the coverage statistics to the file 'd3_output.csv'.
 
-Note that this template expects the input BED and pileup files to be
+Note that this script expects the input BED and pileup files to be
 present as (see the main() function below):
     ./data/
           |__ example.bed
@@ -15,17 +15,14 @@ present as (see the main() function below):
 
 Deliverable 3
 -------------
-Make changes to all the functions below, following the instructions
-preceded with double '##' signs.
-
     usage:
         python3 deliverable3.py
 """
 
 # METADATA VARIABLES
 __author__ = "Marcel Kempenaar"
-__status__ = "Template"
-__version__ = "2018.d3.v1"
+__status__ = "Finished"
+__version__ = "2018.d3.1"
 
 # IMPORT
 import sys
@@ -34,6 +31,11 @@ import csv
 
 # FUNCTIONS
 def mean(values):
+    """
+    Calculates the mean value of the given values
+    :param values: A list with ints/floats
+    :return: the average value of values
+    """
     average = sum(values)/len(values)
     return average
 
@@ -96,7 +98,7 @@ def calculate_mapping_coverage(coverage_dict):
 ######
 
 # MAIN
-def main(args):
+def main():
     """ Main function """
 
     ### INPUT ###
@@ -124,7 +126,7 @@ def main(args):
 
     ### OUTPUT ###
     # Output data files
-    csv_file = 'd3_output.csv'
+    csv_file = 'data/d3_output.csv'
 
     # Read BED data
     print("Reading BED data from", bed_file)
@@ -160,4 +162,4 @@ def main(args):
 
 
 if __name__ == '__main__':
-    sys.exit(main(sys.argv))
+    sys.exit(main())
